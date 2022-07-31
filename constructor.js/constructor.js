@@ -29,7 +29,7 @@ class constructor1 {
       (this.id1 = id1);
   }
   hello(){
-    console.log(`${this.firstname1} ${this.lastname1} ${this.id1}`);
+    return `${this.firstname1} ${this.lastname1} ${this.id1}`;
 
   }
 }

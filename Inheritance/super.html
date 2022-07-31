@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class person{
+  constructor(name,age){
+    this.name=name;
+    this.age=age;
+  }
+  atwork(){
+    
+    return this.name +" is at work ";
+  }
+  athome(){
+    return this.name +" is at home";
+  }
+  sleeping(){
+    return this.name +" is sleeping";
+  }
+}
+let result=new person("vviek",21);
+console.log(result);
+console.log(result.atwork());
+console.log(result.athome());
+
+class FashionDesigner extends person{
+  constructor(name,age){
+    super(name,age);
+
+  }
+  professinal(){
+    console.log("this is this",this);
+    super.sleeping();
+    return this.sleeping() + this.name+" is a fahsion designer";
+  }
+  datasks(){
+    return super.atwork()+this.professinal();
+  }
+}
+
+
+// help in calling method
+function display(content){
+    console.log(content);
+}
+const character=new FashionDesigner("vivek",21);
+console.log(character.professinal())
+console.log(character);
+
+// console.log(character.professinal());
+
+
+display(character.datasks())
+// console.log(character.dotasks("vivekk"));
+    </script>
+</body>
+</html>
