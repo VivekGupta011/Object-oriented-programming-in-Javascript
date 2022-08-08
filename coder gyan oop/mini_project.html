@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" id="user_form">
+      Enter name:<input type="text" id="user_name" /> Enter amount:<input
+        type="number"
+        id="user_amount"
+      />
+      Add amount: <input type="number" id="user_add_amount" /> Subtract amount:
+      <input type="number" id="user_subtract_amount" />
+      <input type="submit" name="" id="submit" />
+    </form>
+
+    <script>
+      function Bankaccount(user_name, user_balance) {
+        this.user_name = user_name;
+        this.user_balance = user_balance;
+        this.show = function () {
+          console.log(`${this.user_name} ${this.user_balance}`);
+        };
+      }
+
+      const data_account = [];
+      const u_form = document.getElementById("user_form");
+      const u_name = document.getElementById("user_name");
+      const u_amount = document.getElementById("user_amount");
+      const u_add_amount = document.getElementById("user_add_amount");
+      const u_subtract_amount = document.getElementById("user_subtract_amount");
+      u_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log(u_name.value, u_amount.value);
+
+        const accon = new Bankaccount("vivek", 500000);
+        data_account.push(accon);
+        console.log(data_account);
+      });
+    </script>
+  </body>
+</html>

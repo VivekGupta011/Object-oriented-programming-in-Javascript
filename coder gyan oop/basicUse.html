@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function constt(customer, balance = 0) {
+        this.customerName = customer;
+        this.usebalance = balance;
+        this.func = function () {
+          console.log(`${this.customerName} ${this.usebalance}`);
+        };
+
+        this.deposit = (amount) => {
+          this.usebalance = this.usebalance + amount;
+        };
+
+        this.withdraw = (amount) => {
+          this.usebalance = this.usebalance - amount;
+        };
+      }
+
+      const result = new constt("vivek", 234352);
+      const result1 = new constt("vivek gupta", 897234352);
+      console.log("this is older result=>", result);
+      console.log("this is result1", result.func());
+      result.deposit(900000);
+      console.log("this is new result=>", result);
+
+      result.deposit(6000);
+      result.withdraw(906000);
+      console.log(`this is amount added by user ${result.usebalance}`);
+      console.log(result.func());
+    </script>
+  </body>
+</html>

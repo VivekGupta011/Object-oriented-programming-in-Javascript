@@ -1,22 +1,35 @@
-class employee{
-    constructor(){
-        this.firstname='vivek',
-        this.lastname="gupta"
-        
+class person {
+    employee(name, age, salary) {
+      this.firstname = name;
+      this.userAge = age;
+      this.userSalary = salary;
     }
-    // this is protype method
-    greet(){
-        console.log(`${this.firstname} ${this.lastname}`)
+  
+    getdata() {
+      console.log(` this is ${this.employee.firstname} ${this.employee.userAge} ${this.employee.userSalary}`);
+      console.log(this);
     }
-}
-
-let result=new employee();
-console.log(result);
-
-class manager extends employee{
-
-}
-let result2=new employee();
-result2.greet();
-let result1=new manager();
-console.log(result1);
+  }
+  
+  let detail = new person("vivek", "21", 1243543);
+  detail.getdata();
+  
+  
+  
+  // using ES6 
+  
+  class constructor1{
+      constructor(fname1,lname1,salary){
+          this.firstname1=fname1;
+          this.lastname1=lname1;
+          this.Usersalary=salary;
+      }
+  // this is protype method
+      hello(){
+          console.log(`this is  ${this.firstname1} ${this.lastname1} ${this.Usersalary}`)
+      }
+  }
+  
+  // object declaration with many instances
+  let studd=new constructor1("viviek","guptaa",4500);
+  studd.hello();

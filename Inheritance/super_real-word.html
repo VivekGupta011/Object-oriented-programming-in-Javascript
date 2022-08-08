@@ -16,10 +16,7 @@
           console.log("Constructor :employee")
         }
         emp() {
-          document.write(`<h3>Employee Data:</h3> 
-                       Employee name: ${this.empname} <br>
-                       Age:${this.empage} <br>
-                       Salary:${this.empsalary}`); 
+          console.log(`<h3>Employee Data:</h3> Employee name: ${this.empname} <br>Age:${this.empage} <br> Salary:${this.empsalary}`); 
                        
                        
         }
@@ -30,7 +27,7 @@
       }
 
       const data = new empp_data1("vivek", 21, 5400);
-      data.emp();
+      console.log(data.emp());
     </script>
   </body>
 </html>
