@@ -7,39 +7,70 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="" id="user_form">
-      Enter name:<input type="text" id="user_name" /> Enter amount:<input
-        type="number"
-        id="user_amount"
-      />
-      Add amount: <input type="number" id="user_add_amount" /> Subtract amount:
-      <input type="number" id="user_subtract_amount" />
-      <input type="submit" name="" id="submit" />
+    <h2>Coder's Bank</h2>
+    <form action="" id="accountForm">
+      <input type="text" placeholder="Customer name" id="customerName" />
+      <input type="text" placeholder="Initial balance" id="balance" />
+      <button>Create Account</button>
+    </form>
+    <hr />
+    <form action="" id="depositeForm">
+      <input type="text" placeholder="accountNumber" id="accountNumber" />
+      <input type="text" placeholder="Amount" id="amount" />
+      <button>Deposit</button>
+    </form>
+    <form action="" id="creditForm">
+      <input type="text" placeholder="accountNumber" id="accountNumber" />
+      <input type="text" placeholder="Amount" id="amount" />
+      <button>Deposit</button>
     </form>
 
     <script>
-      function Bankaccount(user_name, user_balance) {
-        this.user_name = user_name;
-        this.user_balance = user_balance;
-        this.show = function () {
-          console.log(`${this.user_name} ${this.user_balance}`);
+      function BankAccount(customerName, balance = 0) {
+        this.customerName = customerName;
+        this.accountNumber = Date.now();
+        this.balance = balance;
+
+        this.deposit = function (amount) {
+          this.balance += amount;
+        };
+
+        this.credit = function (account) {
+          this.balance -= amount;
         };
       }
 
-      const data_account = [];
-      const u_form = document.getElementById("user_form");
-      const u_name = document.getElementById("user_name");
-      const u_amount = document.getElementById("user_amount");
-      const u_add_amount = document.getElementById("user_add_amount");
-      const u_subtract_amount = document.getElementById("user_subtract_amount");
-      u_form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        console.log(u_name.value, u_amount.value);
+      const accounts = [];
+      const accountForm = document.querySelector("#accountForm");
+      const customerName = document.querySelector("#customerName");
+      const balance = document.querySelector("#balance");
 
-        const accon = new Bankaccount("vivek", 500000);
-        data_account.push(accon);
-        console.log(data_account);
+      const depositeForm = document.querySelector("#depositeForm");
+      const accountNumber = document.querySelector("#accountNumber");
+      const amount = document.querySelector("#amount");
+
+      accountForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const account = new BankAccount(customerName.value, balance.value);
+        accounts.push(account);
+        console.log(accounts);
       });
+      depositeForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const account = accounts.find(
+          (account) => +account.accountNumber === +accountNumber.value
+        );
+        account.deposit(+ amount.value);
+        console.log(accounts);
+      });
+      // creditForm.addEventListener("submit", (e) => {
+      //   e.preventDefault();
+      //   const account = accounts.find(
+      //     (account) => account.accountNumber === +accountNumber.value
+      //   );
+      //   account.credit(+amount.value);
+      //   console.log(accounts);
+      // });
     </script>
   </body>
 </html>
